@@ -1,6 +1,7 @@
 export default function Filters({
   name,
   house,
+  houses,
   handleInputHouse,
   handleInputName,
 }) {
@@ -14,7 +15,8 @@ export default function Filters({
           type='text'
           name='search_name'
           id='search_name'
-          onInput={handleInputName}
+          placeholder='Buscar personaje...'
+          onChange={handleInputName}
           value={name}
         ></input>
       </label>
@@ -24,12 +26,18 @@ export default function Filters({
           className=''
           name='search_house'
           id='search_house'
-          onInput={handleInputHouse}
+          onChange={handleInputHouse}
           value={house}
         >
-          <option></option>
+          <option value=''>Todos</option>
+          {houses.map((eachHouse) => (
+            <option key={eachHouse} value={eachHouse}>
+              {eachHouse}
+            </option>
+          ))}
         </select>
       </label>
     </form>
   );
 }
+//{`${eachHouse ? eachHouse : 'Ninguna'}`}

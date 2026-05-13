@@ -5,6 +5,7 @@ export default function LandingPage({
   characters,
   name,
   house,
+  houses,
   handleInputName,
   handleInputHouse,
 }) {
@@ -13,6 +14,7 @@ export default function LandingPage({
       <Filters
         name={name}
         house={house}
+        houses={houses}
         handleInputHouse={handleInputHouse}
         handleInputName={handleInputName}
       ></Filters>

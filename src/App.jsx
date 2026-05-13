@@ -13,7 +13,7 @@ function App() {
   const [characterHouse, setCharacterHouse] = useState('');
 
   useEffect(() => {
-    fetch('https://hp-api.onrender.com/api/characters/house/gryffindor')
+    fetch('https://hp-api.onrender.com/api/characters')
       .then((res) => res.json())
       .then((data) => {
         setCharacters(
@@ -29,21 +29,31 @@ function App() {
               image: characterObj.image,
               actor: characterObj.actor,
               student: characterObj.hogwartsStudent,
-              birthYear: parseInt(characterObj.hogwartsStudent.yearOfBirth),
+              birthYear: parseInt(characterObj.yearOfBirth) || null,
             };
           })
         );
       });
-  }, []);
+  }, [characterHouse]);
+
+  const allHouses = characters.map((characterObj) => characterObj.house);
+  const houses = [...new Set(allHouses)];
 
   const handleInputName = (ev) => {
     setCharacterName(ev.target.value);
   };
-
   const handleInputHouse = (ev) => {
     setCharacterHouse(ev.target.value);
+    console.log('hola');
   };
-
+  const filteredCharacters = characters.filter((characterObj) =>
+    characterObj.name
+      .toLowerCase()
+      .includes(characterName.toLowerCase())
+      .filter(
+        characterHouse === '' ? true : characterObj.house === characterHouse
+      )
+  );
   const findCharacter = (searchId) => {
     return characters.find((characterObj) => characterObj.id === searchId);
   };
@@ -57,8 +67,10 @@ function App() {
             index
             element={
               <LandingPage
-                name={name}
-                house={house}
+                characters={filteredCharacters}
+                name={characterName}
+                house={characterHouse}
+                houses={houses}
                 handleInputHouse={handleInputHouse}
                 handleInputName={handleInputName}
               ></LandingPage>

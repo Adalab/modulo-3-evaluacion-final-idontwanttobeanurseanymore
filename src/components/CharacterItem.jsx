@@ -17,3 +17,8 @@ export default function CharacterItem({ characterObj }) {
     </Link>
   );
 }
+{
+  /**const age = character.birthYear
+  ? new Date().getFullYear() - character.birthYear
+  : 'Desconocida'; */
+}
