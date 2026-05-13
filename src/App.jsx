@@ -47,7 +47,6 @@ function App() {
   };
   const handleInputHouse = (ev) => {
     setCharacterHouse(ev.target.value);
-    console.log('hola');
   };
   const filteredCharacters = characters
     .filter((characterObj) =>
