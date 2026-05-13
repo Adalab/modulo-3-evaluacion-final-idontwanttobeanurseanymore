@@ -7,6 +7,7 @@ import CharacterList from './components/CharacterList';
 import LandingPage from './components/LandingPage';
 import CharacterDetailPage from './components/CharacterDetailPage';
 import CharacterItem from './components/CharacterItem';
+import Error404Page from './components/Error404Page';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -30,7 +31,7 @@ function App() {
               image: characterObj.image,
               actor: characterObj.actor,
               student: characterObj.hogwartsStudent,
-              birthYear: parseInt(characterObj.yearOfBirth) || null,
+              birthDate: characterObj.dateOfBirth || null,
             };
           })
         );
@@ -86,7 +87,7 @@ function App() {
               ></CharacterDetailPage>
             }
           ></Route>
-          <Route path='/*'></Route>
+          <Route path='*' element={<Error404Page></Error404Page>}></Route>
         </Routes>
 
         <section></section>
