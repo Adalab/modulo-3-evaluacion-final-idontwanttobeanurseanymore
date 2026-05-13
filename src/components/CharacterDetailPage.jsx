@@ -3,10 +3,9 @@ import { Link, useParams } from 'react-router';
 export default function CharacterDetailPage({ findCharacter }) {
   const params = useParams();
   const characterFound = findCharacter(params.id);
-  console.log(params.id);
+  // console.log(characterFound);
   return (
-    <article>
-      {params.id}
+    <article className=''>
       <img className='' src={characterFound.image} alt=''></img>
       <section>
         <h2>{characterFound.name}</h2>

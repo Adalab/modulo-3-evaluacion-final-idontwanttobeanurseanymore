@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import CharacterList from './components/CharacterList';
 import LandingPage from './components/LandingPage';
 import CharacterDetailPage from './components/CharacterDetailPage';
+import CharacterItem from './components/CharacterItem';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -36,7 +37,9 @@ function App() {
       });
   }, [characterHouse]);
 
-  const allHouses = characters.map((characterObj) => characterObj.house);
+  const allHouses = characters
+    .map((characterObj) => characterObj.house)
+    .filter((house) => house);
   const houses = [...new Set(allHouses)];
 
   const handleInputName = (ev) => {
@@ -46,14 +49,14 @@ function App() {
     setCharacterHouse(ev.target.value);
     console.log('hola');
   };
-  const filteredCharacters = characters.filter((characterObj) =>
-    characterObj.name
-      .toLowerCase()
-      .includes(characterName.toLowerCase())
-      .filter(
-        characterHouse === '' ? true : characterObj.house === characterHouse
-      )
-  );
+  const filteredCharacters = characters
+    .filter((characterObj) =>
+      characterObj.name.toLowerCase().includes(characterName.toLowerCase())
+    )
+    .filter((characterObj) =>
+      characterHouse === '' ? true : characterObj.house === characterHouse
+    );
+
   const findCharacter = (searchId) => {
     return characters.find((characterObj) => characterObj.id === searchId);
   };
@@ -84,6 +87,7 @@ function App() {
               ></CharacterDetailPage>
             }
           ></Route>
+          <Route path='/*'></Route>
         </Routes>
 
         <section></section>

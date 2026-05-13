@@ -2,10 +2,10 @@ import { Link } from 'react-router';
 //, ${new Date().getFullYear() - characterObj.birthYear} años
 export default function CharacterItem({ characterObj }) {
   return (
-    <Link to={`/detalle${characterObj.id}`} className=''>
+    <Link to={`/detalle/${characterObj.id}`} className=''>
       <img
         className='characterImg'
-        src={`${characterObj.image ? characterObj.image : `https://placehold.co/210x295/ffffff/666666/?format=svg&text=${characterObj.name}`}`}
+        src={`${characterObj.image ? characterObj.image : 'desconocida'}`}
         alt={`Foto de ${characterObj.name}`}
         title={`Foto de ${characterObj.name}`}
       ></img>
@@ -20,5 +20,6 @@ export default function CharacterItem({ characterObj }) {
 {
   /**const age = character.birthYear
   ? new Date().getFullYear() - character.birthYear
-  : 'Desconocida'; */
+  : 'Desconocida'; 
+          src={`${characterObj.image ? characterObj.image : `https://placehold.co/210x295/ffffff/666666/?format=svg&text=${characterObj.name}${characterObj.house}`}`}*/
 }
