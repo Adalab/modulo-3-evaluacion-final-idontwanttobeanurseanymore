@@ -39,4 +39,3 @@ export default function Filters({
     </form>
   );
 }
-//{`${eachHouse ? eachHouse : 'Ninguna'}`}

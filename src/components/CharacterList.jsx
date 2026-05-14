@@ -1,13 +1,17 @@
 import CharacterCard from './CharacterCard';
 
-export default function CharacterList({ characters }) {
+export default function CharacterList({ characters, showList }) {
+  if (!showList) return;
   return (
-    <ul className='characterUl'>
-      {characters.map((characterObj) => (
-        <li key={characterObj.id} className='characterList'>
-          <CharacterCard characterObj={characterObj}></CharacterCard>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h2 className='filtersText'>Tu búsqueda:</h2>
+      <ul className='characterUl'>
+        {characters.map((characterObj) => (
+          <li key={characterObj.id} className='characterList'>
+            <CharacterCard characterObj={characterObj}></CharacterCard>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
