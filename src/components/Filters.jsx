@@ -6,12 +6,12 @@ export default function Filters({
   handleInputName,
 }) {
   return (
-    <form className=''>
-      <h2 className=''>Filtrar por...</h2>
-      <label className='' htmlFor='search_name'>
+    <form className='filters'>
+      <h2 className='filtersText'>Filtrar por...</h2>
+      <label className='filterInput' htmlFor='search_name'>
         Nombre:
         <input
-          className=''
+          className='filterInput'
           type='text'
           name='search_name'
           id='search_name'
@@ -20,16 +20,15 @@ export default function Filters({
           value={name}
         ></input>
       </label>
-      <label className='' htmlFor='search_house'>
+      <label className='filterSelect' htmlFor='search_house'>
         Casa:
         <select
-          className=''
+          className='filterSelect'
           name='search_house'
           id='search_house'
           onChange={handleInputHouse}
           value={house}
         >
-          <option value=''>Todos</option>
           {houses.map((eachHouse) => (
             <option key={eachHouse} value={eachHouse}>
               {eachHouse}

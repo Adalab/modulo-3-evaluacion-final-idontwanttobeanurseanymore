@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import CharacterList from './components/CharacterList';
 import LandingPage from './components/LandingPage';
 import CharacterDetailPage from './components/CharacterDetailPage';
-import CharacterItem from './components/CharacterItem';
 import Error404Page from './components/Error404Page';
 
 function App() {

@@ -3,11 +3,106 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  font-family: 'Georgia', serif;
+  --bg-secondary: #1f1f1f;
+  --btn-primary: #d4af37; //btn
+  --btn-secondary: #f5d67b; //btn:hover
+  --text-primary: #e8dcc3; //beige
+  --text-secondary: #6b4f2a;
+  --box-shadow: #d4af3766;
+  //Casas:
+  --gryffindor-primary: #740001;
+  --gryffindor-secondary: #d3a625;
+  --slytherin-primary: #1a472a;
+  --slytherin-secondary: #aaaaaa;
+  --ravenclaw-primary: #0e1a40;
+  --ravenclaw-secondary: #946b2d;
+  --hufflepuff-primary: #ecb939;
+  --hufflepuff-secondary: #372e29;
+  --bg-main: linear-gradient(
+    135deg,
+    var(--gryffindor-primary),
+    var(--slytherin-primary),
+    var(--hufflepuff-secondary),
+    var(--ravenclaw-primary),
+    var(--gryffindor-primary)
+  );
+}
 
 body {
-  background-color: darkcyan;
-  color: white;
+  background: var(--bg-main);
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+a {
+  text-decoration: none;
+}
+
+.characterUl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 15px;
+}
+
+.characterList {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+
+  text-align: center;
+  border: 2px solid var(--btn-primary);
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(0.98); // efecto táctil
+  }
 }
 .characterImg {
-  max-width: 100px;
+  width: 100%;
+  aspect-ratio: 1/1; // horizontal bonito
+  object-fit: cover;
+  object-position: top; // 👈 CLAVE
+  border-radius: 10px;
+  border: 1px solid var(--btn-secondary);
+}
+.characterName {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: var(--btn-primary);
+}
+
+.characterHouse {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+//Filtros
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+.filtersText {
+  color: var(--text-primary);
+}
+.filterInput,
+.filterSelect {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--btn-primary);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  margin: 0.2rem;
+
+  &:focus {
+    outline: none;
+    border-color: var(--btn-secondary);
+    box-shadow: 0 0 8px var(--box-shadow);
+  }
 }

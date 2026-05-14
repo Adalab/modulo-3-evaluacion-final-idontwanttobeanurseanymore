@@ -1,11 +1,11 @@
-import CharacterItem from './CharacterItem';
+import CharacterCard from './CharacterCard';
 
 export default function CharacterList({ characters }) {
   return (
-    <ul className=''>
+    <ul className='characterUl'>
       {characters.map((characterObj) => (
-        <li key={characterObj.id} className=''>
-          <CharacterItem characterObj={characterObj}></CharacterItem>
+        <li key={characterObj.id} className='characterList'>
+          <CharacterCard characterObj={characterObj}></CharacterCard>
         </li>
       ))}
     </ul>
