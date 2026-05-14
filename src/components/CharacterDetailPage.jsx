@@ -57,7 +57,7 @@ export default function CharacterDetailPage({ findCharacter }) {
             <br /> <span>{gender}</span>
           </p>
           <p>
-            Estudiante: <span>{characterFound.student ? 'si' : 'no'}</span>
+            Estudiante: <span>{characterFound.student ? '✔' : '✗'}</span>
           </p>
           <p>
             Estatus
