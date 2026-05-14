@@ -31,6 +31,7 @@ function App() {
               image: characterObj.image,
               actor: characterObj.actor,
               student: characterObj.hogwartsStudent,
+              ancestry: characterObj.ancestry,
               birthDate: characterObj.dateOfBirth || null,
             };
           })

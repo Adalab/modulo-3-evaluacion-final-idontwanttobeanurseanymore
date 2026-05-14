@@ -12,12 +12,12 @@ export default function CharacterDetailPage({ findCharacter }) {
     imgHufflepuff: '/harry-potter-hufflepuff.avif',
   };
   let gender;
-  let isItAlive;
+  let isItAlive = characterFound.isItAlive;
   if (characterFound.gender) {
-    if (characterFound.gender === 'male') {
+    if (characterFound.gender === 'male' && isItAlive) {
       gender = 'masculino';
       isItAlive = 'vivo';
-    } else if (characterFound.gender === 'female') {
+    } else if (characterFound.gender === 'female' && isItAlive) {
       gender = 'femenino';
       isItAlive = 'viva';
     } else {
@@ -40,7 +40,7 @@ export default function CharacterDetailPage({ findCharacter }) {
       <section className='detailContent'>
         <h2 className='detailName'>{characterFound.name}</h2>
         <hr />
-        <div class='houseRow'>
+        <div className='houseRow'>
           <p>{characterFound.house}</p>
           <img
             className='housesImg'
@@ -53,15 +53,33 @@ export default function CharacterDetailPage({ findCharacter }) {
         <hr />
         <div className='gridInfo'>
           <p>
-            Género: <span>{gender}</span>
+            Género
+            <br /> <span>{gender}</span>
           </p>
-          <p>Estatus: {isItAlive ? isItAlive : 'Sin vida'}</p>
-          <p>Estudiante: {characterFound.student ? 'Si' : 'No'}</p>
-          <p>Fecha de nacimiento {characterFound.birthDate || 'desconocida'}</p>
+          <p>
+            Estudiante: <span>{characterFound.student ? 'si' : 'no'}</span>
+          </p>
+          <p>
+            Estatus
+            <br /> <span>{isItAlive ? isItAlive : 'Sin vida'}</span>
+          </p>
 
           <p>
-            Intérprete:{' '}
-            {characterFound.actor ? characterFound.actor : 'desconocido'}
+            Fecha de nacimiento
+            <br />
+            <span>{characterFound.birthDate || 'desconocida'}</span>
+          </p>
+          <p>
+            Ascendencia
+            <br /> <span>{characterFound.ancestry || 'desconocida'}</span>
+          </p>
+
+          <p>
+            Intérprete
+            <br />
+            <span>
+              {characterFound.actor ? characterFound.actor : 'desconocido'}
+            </span>
           </p>
         </div>
       </section>

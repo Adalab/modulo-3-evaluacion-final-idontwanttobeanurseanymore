@@ -11,7 +11,7 @@
   --text-primary: #e8dcc3; //beige
   --text-secondary: #6b4f2a;
   --box-shadow: #ccc2a366;
-  
+
   //Casas:
   --gryffindor-primary: #740001;
   --gryffindor-secondary: #d3a625;
@@ -32,11 +32,12 @@
     var(--ravenclaw-primary),
     var(--gryffindor-primary)
   );
-  --bg-house-detail: rgba(255, 255, 255, 0.1);
+  --bg-house-detail: #ffffff1a;
 
   // Missing variables identified in bug report
   --accent-detail: #d4af37;
   --text-constant-detail: #f5d67b;
+  --text-constant-detail-dark: black;
 }
 
 body {
@@ -273,6 +274,9 @@ hr {
 .houseHufflepuff {
   background-color: var(--hufflepuff-primary);
   color: var(--hufflepuff-secondary);
+  span {
+    color: var(--text-constant-detail-dark);
+  }
 }
 .houseRavenclaw {
   background-color: var(--ravenclaw-primary);
