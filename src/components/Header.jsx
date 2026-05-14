@@ -1,4 +1,4 @@
-import Logo from '../../public/harry-potter-logo-gold.png';
+import Logo from '/harry-potter-logo-gold.png';
 
 export default function Header() {
   return (

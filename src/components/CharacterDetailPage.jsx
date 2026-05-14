@@ -3,13 +3,28 @@ import { Link, useParams } from 'react-router';
 export default function CharacterDetailPage({ findCharacter }) {
   const params = useParams();
   const characterFound = findCharacter(params.id);
+  const dummyCharacterImg =
+    'https://dummyimage.com/210x295/ffffff/656565.png&text=Harry+Potter';
+  let gender;
+  let isItAlive;
+  if (characterFound.gender) {
+    if (characterFound.gender === 'male') {
+      gender = 'masculino';
+      isItAlive = 'vivo';
+    }
+  } else if (characterFound.gender === 'female') {
+    gender = 'femenino';
+    isItAlive = 'viva';
+  } else {
+    gender = 'desconocido';
+  }
 
   // console.log(characterFound);
   return (
-    <article className=''>
+    <article className={`house${characterFound.house}`}>
       <img
         className='characterImg'
-        src={`${characterFound.image ? characterFound.image : characterImg}`}
+        src={`${characterFound.image ? characterFound.image : dummyCharacterImg}`}
         alt={`Foto de ${characterFound.name}`}
         title={`Foto de ${characterFound.name}`}
       ></img>
@@ -17,16 +32,20 @@ export default function CharacterDetailPage({ findCharacter }) {
         <h2>{characterFound.name}</h2>
         <div>
           <p>Casa: {characterFound.house}</p>
-          <p>Estudiante: {characterFound.student}</p>
-          <p>Género: {characterFound.gender}</p>
-          <p>Fecha de nacimiento: {characterFound.birthDate}</p>
+          <p>Estudiante: {characterFound.student ? 'Si' : 'No'}</p>
+          <p>Género: {gender}</p>
           <p>
-            {characterFound.isItAlive
-              ? `Estatus: ${characterFound.isItAlive}`
-              : ''}
+            Fecha de nacimiento: {characterFound.birthDate || 'desconocida'}
           </p>
-          <p>{characterFound.specie}</p>
-          <p>{characterFound.actor ? characterFound.actor : ''}</p>
+          <p>Estatus: {isItAlive ? isItAlive : 'Sin vida'}</p>
+          <p>
+            Especie:{' '}
+            {characterFound.specie ? characterFound.specie : 'desconocida'}
+          </p>
+          <p>
+            Intérprete:{' '}
+            {characterFound.actor ? characterFound.actor : 'desconocido'}
+          </p>
         </div>
         <Link to='/'>Volver</Link>
       </section>

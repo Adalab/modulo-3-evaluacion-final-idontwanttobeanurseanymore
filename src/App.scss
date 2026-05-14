@@ -121,3 +121,19 @@ header {
     box-shadow: 0 0 8px var(--box-shadow);
   }
 }
+.houseGryffindor {
+  background-color: var(--gryffindor-primary);
+  color: var(--gryffindor-secondary);
+}
+.houseSlytherin {
+  background-color: var(--slytherin-primary);
+  color: var(--slytherin-secondary);
+}
+.houseHufflepuff {
+  background-color: var(--hufflepuff-primary);
+  color: var(--hufflepuff-secondary);
+}
+.houseRavenclaw {
+  background-color: var(--ravenclaw-primary);
+  color: var(--ravenclaw-secondary);
+}
