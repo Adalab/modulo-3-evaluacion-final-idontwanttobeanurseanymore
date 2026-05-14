@@ -11,6 +11,7 @@
   --text-primary: #e8dcc3; //beige
   --text-secondary: #6b4f2a;
   --box-shadow: #ccc2a366;
+  
   //Casas:
   --gryffindor-primary: #740001;
   --gryffindor-secondary: #d3a625;
@@ -20,6 +21,9 @@
   --ravenclaw-secondary: #946b2d;
   --hufflepuff-primary: #ecb939;
   --hufflepuff-secondary: #372e29;
+  --default-house-primary: #444;
+  --default-house-secondary: #ccc;
+
   --bg-main: linear-gradient(
     135deg,
     var(--gryffindor-primary),
@@ -29,13 +33,22 @@
     var(--gryffindor-primary)
   );
   --bg-house-detail: rgba(255, 255, 255, 0.1);
-  //detail-page
+
+  // Missing variables identified in bug report
+  --accent-detail: #d4af37;
+  --text-constant-detail: #f5d67b;
 }
 
 body {
   background: var(--bg-main);
   min-height: 100vh;
   background-attachment: fixed;
+  color: var(--text-primary);
+}
+
+.house {
+  background-color: var(--default-house-primary);
+  color: var(--default-house-secondary);
 }
 a {
   text-align: center;
@@ -50,17 +63,24 @@ a {
 }
 header {
   display: flex;
-  font-size: 0.5rem;
-  justify-content: space-around;
-  text-align: center;
-  padding: 1rem;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1rem 1.5rem;
   background-color: var(--bg-secondary);
   color: var(--text-primary);
-  align-items: center;
 }
+
 .headerLogo {
-  width: 25%;
+  width: 40px;
+  height: auto;
+}
+.headerTitle {
+  font-size: 1rem;
+  text-align: right;
+  color: var(--text-primary);
+  font-weight: bold;
 }
 .characterUl {
   display: grid;
@@ -257,4 +277,168 @@ hr {
 .houseRavenclaw {
   background-color: var(--ravenclaw-primary);
   color: var(--ravenclaw-secondary);
+}
+
+//MEDIA
+@media screen and (min-width: 768px) {
+  .headerLogo {
+    width: 55px;
+  }
+
+  .headerTitle {
+    font-size: 1.3rem;
+  }
+
+  .characterUl {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .characterName {
+    font-size: 1.3rem;
+  }
+
+  .characterHouse {
+    font-size: 1.1rem;
+  }
+
+  .filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .filterInput,
+  .filterSelect {
+    min-width: 180px;
+    width: auto;
+  }
+
+  .detailCard {
+    width: 80%;
+    max-width: 500px;
+  }
+
+  .characterImgDetail {
+    width: 170px;
+    height: 170px;
+  }
+
+  .gridInfo {
+    grid-template-columns: 1fr 1fr;
+    max-width: 420px;
+  }
+}
+//MEDIA
+@media screen and (min-width: 1024px) {
+  .headerTitle {
+    font-size: 1.6rem;
+  }
+
+  .characterUl {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem 4rem;
+  }
+
+  .characterList {
+    padding: 1.5rem;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+  }
+
+  .characterName {
+    font-size: 1.4rem;
+  }
+
+  .characterHouse {
+    font-size: 1.1rem;
+  }
+
+  // FILTROS
+  .filters {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 4rem;
+  }
+
+  .filterInput,
+  .filterSelect {
+    width: auto;
+    min-width: 200px;
+  }
+
+  .filtersText {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  // DETAIL PAGE
+  .detailCard {
+    width: 600px;
+    margin: 4rem auto;
+  }
+
+  .characterImgDetail {
+    width: 200px;
+    height: 200px;
+  }
+
+  .detailName {
+    font-size: 2rem;
+  }
+
+  .gridInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+
+    max-width: 500px; // 👈 clave
+    margin: 0 auto; // 👈 centra el grid
+
+    text-align: center;
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    span {
+      color: var(--text-constant-detail);
+    }
+  }
+
+  .houseRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.8rem; // 👈 controla la separación real
+
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    background: var(--bg-house-detail);
+
+    p {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .housesImg {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 50%;
+      padding: 4px;
+      box-shadow: 0 0 10px var(--accent-detail);
+      transition: transform 0.3s ease;
+    }
+  }
 }
