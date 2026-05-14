@@ -6,11 +6,11 @@
 :root {
   font-family: 'Georgia', serif;
   --bg-secondary: #1f1f1f;
-  --btn-primary: #d4af37; //btn
-  --btn-secondary: #f5d67b; //btn:hover
+  --accent-primary: #d4af37; //accent
+  --accent-secondary: #f5d67b; //accent:hover
   --text-primary: #e8dcc3; //beige
   --text-secondary: #6b4f2a;
-  --box-shadow: #d4af3766;
+  --box-shadow: #ccc2a366;
   //Casas:
   --gryffindor-primary: #740001;
   --gryffindor-secondary: #d3a625;
@@ -28,6 +28,8 @@
     var(--ravenclaw-primary),
     var(--gryffindor-primary)
   );
+  --bg-house-detail: rgba(255, 255, 255, 0.1);
+  //detail-page
 }
 
 body {
@@ -74,7 +76,7 @@ header {
   background: var(--bg-secondary);
 
   text-align: center;
-  border: 2px solid var(--btn-primary);
+  border: 2px solid var(--accent-primary);
   transition: transform 0.2s;
 
   &:active {
@@ -87,12 +89,12 @@ header {
   object-fit: cover;
   object-position: top;
   border-radius: 10px;
-  border: 1px solid var(--btn-secondary);
+  border: 1px solid var(--accent-secondary);
 }
 .characterName {
   margin-top: 10px;
   font-size: 1.2rem;
-  color: var(--btn-primary);
+  color: var(--accent-primary);
 }
 
 .characterHouse {
@@ -117,7 +119,7 @@ header {
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid var(--btn-primary);
+  border: 1px solid var(--accent-primary);
   background: var(--bg-secondary);
   color: var(--text-primary);
   padding: 0.5rem;
@@ -125,13 +127,20 @@ header {
 
   &:focus {
     outline: none;
-    border-color: var(--btn-secondary);
+    border-color: var(--accent-secondary);
     box-shadow: 0 0 8px var(--box-shadow);
   }
 }
 //detailCard
 hr {
-  color: var(--btn-primary);
+  border: 0;
+  height: 3px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 }
 .detailCard {
   position: relative;
@@ -174,7 +183,7 @@ hr {
   margin: 2rem auto 1rem auto;
 
   border-radius: 12px;
-  border: 3px solid var(--btn-primary);
+  border: 3px solid;
   box-shadow: 0 8px 20px #00000066;
 }
 .detailContent {
@@ -195,13 +204,13 @@ hr {
 
   padding: 0.5rem 0.8rem;
   border-radius: 12px;
-  background: var(--box-shadow);
+  background: var(--bg-house-detail);
+
   backdrop-filter: blur(6px);
 
   p {
     margin: 0;
     font-weight: bold;
-    color: var(--bg-secondary);
   }
   .housesImg {
     width: 50px;
@@ -212,7 +221,7 @@ hr {
     padding: 4px;
 
     //background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px var(--bg-secondary);
+    box-shadow: 0 0 10px var(--accent-detail);
     transition: transform 0.3s ease;
   }
 
@@ -228,10 +237,9 @@ hr {
   p {
     margin: 0;
     font-size: 0.9rem;
-    color: var(--text-primary);
   }
   span {
-    color: var(--text-secondary);
+    color: var(--text-constant-detail);
   }
 }
 .houseGryffindor {
