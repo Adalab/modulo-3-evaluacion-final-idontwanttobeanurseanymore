@@ -401,8 +401,8 @@ hr {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 
-    max-width: 500px; // 👈 clave
-    margin: 0 auto; // 👈 centra el grid
+    max-width: 500px;
+    margin: 0 auto;
 
     text-align: center;
 
@@ -420,7 +420,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 0.8rem; // 👈 controla la separación real
+    gap: 0.8rem;
 
     padding: 1rem 1.2rem;
     border-radius: 12px;

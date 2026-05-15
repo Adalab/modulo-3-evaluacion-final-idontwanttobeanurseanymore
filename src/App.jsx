@@ -43,7 +43,13 @@ function App() {
   const allHouses = characters
     .map((characterObj) => characterObj.house)
     .filter((house) => house);
+
   const houses = [...new Set(allHouses)];
+  useEffect(() => {
+    if (houses.length > 0) {
+      setCharacterHouse(houses[0]);
+    }
+  }, [characters]);
 
   const handleInputName = (ev) => {
     ev.preventDefault();
@@ -58,7 +64,7 @@ function App() {
       characterObj.name.toLowerCase().includes(characterName.toLowerCase())
     )
     .filter((characterObj) =>
-      characterHouse === '' ? true : characterObj.house === characterHouse
+      characterHouse ? characterObj.house === characterHouse : true
     );
 
   const findCharacter = (searchId) => {
