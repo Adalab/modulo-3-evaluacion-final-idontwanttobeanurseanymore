@@ -19,10 +19,10 @@ export default function CharacterDetailPage({ findCharacter }) {
   const dummyCharacterImg =
     'https://dummyimage.com/210x295/ffffff/656565.png&text=Harry+Potter';
   const housesImg = {
-    imgGryffindor: '/harry-potter-gryffindor.avif',
-    imgSlytherin: '/harry-potter-slytherin.avif',
-    imgRavenclaw: '/harry-potter-ravenclaw.avif',
-    imgHufflepuff: '/harry-potter-hufflepuff.avif',
+    imgGryffindor: './src/assets/harry-potter-gryffindor.avif',
+    imgSlytherin: './src/assets/harry-potter-slytherin.avif',
+    imgRavenclaw: './src/assets/harry-potter-ravenclaw.avif',
+    imgHufflepuff: './src/assets/harry-potter-hufflepuff.avif',
   };
   let gender;
 
