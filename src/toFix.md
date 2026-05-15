@@ -1,0 +1,2 @@
+- Sort() donde??
+- traducciones??

@@ -8,11 +8,19 @@ import LandingPage from './components/LandingPage';
 import CharacterDetailPage from './components/CharacterDetailPage';
 import Error404Page from './components/Error404Page';
 
+import Castle from './assets/icon-magic-3.png';
+import Harry from './assets/icon-magic-4.png';
+
 function App() {
   const [characters, setCharacters] = useState([]);
   const [characterName, setCharacterName] = useState('');
   const [characterHouse, setCharacterHouse] = useState('');
 
+  const iconsImg = {
+    imgCastle: Castle,
+    //imgHat: Hat,
+    imgHarry: Harry,
+  };
   useEffect(() => {
     fetch('https://hp-api.onrender.com/api/characters')
       .then((res) => res.json())
@@ -27,9 +35,7 @@ function App() {
               gender: characterObj.gender,
               specie: characterObj.species,
               alternativeName: characterObj.alternate_names,
-              image:
-                characterObj.image ||
-                'https://dummyimage.com/210x295/ffffff/656565.png&text=Harry+Potter',
+              image: characterObj.image || iconsImg['imgHarry'],
               actor: characterObj.actor,
               student: characterObj.hogwartsStudent,
               ancestry: characterObj.ancestry,

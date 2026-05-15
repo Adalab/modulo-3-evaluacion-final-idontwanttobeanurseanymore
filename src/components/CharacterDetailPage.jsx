@@ -5,6 +5,8 @@ import SlytherinImport from '../assets/harry-potter-slytherin.avif';
 import RavenclawImport from '../assets/harry-potter-ravenclaw.avif';
 import HufflepuffImport from '../assets/harry-potter-hufflepuff.avif';
 
+import Castle from '../assets/icon-magic-2.png';
+
 export default function CharacterDetailPage({ findCharacter, translation }) {
   useEffect(() => {
     document.body.classList.add('bgDetailCard');
@@ -25,6 +27,7 @@ export default function CharacterDetailPage({ findCharacter, translation }) {
     imgSlytherin: SlytherinImport,
     imgRavenclaw: RavenclawImport,
     imgHufflepuff: HufflepuffImport,
+    imgCastle: Castle,
   };
 
   return (
@@ -43,10 +46,12 @@ export default function CharacterDetailPage({ findCharacter, translation }) {
         <h2 className='detailName'>{characterFound.name}</h2>
         <hr />
         <div className='houseRow'>
-          <p>{characterFound.house}</p>
+          <p>{characterFound.house || 'Desconocida'}</p>
           <img
             className='housesImg'
-            src={housesImg[`img${characterFound.house}`]}
+            src={
+              housesImg[`img${characterFound.house}`] || housesImg['imgCastle']
+            }
             alt={`Escudo de la casa ${characterFound.house} `}
             title={`Escudo de la casa ${characterFound.house} `}
           ></img>
@@ -60,7 +65,10 @@ export default function CharacterDetailPage({ findCharacter, translation }) {
           </p>
           <p>
             Género
-            <br /> <span>{translation.gender[characterFound.gender]}</span>
+            <br />{' '}
+            <span>
+              {translation.gender[characterFound.gender] || 'desconocido'}
+            </span>
           </p>
           <p>
             Ascendencia
@@ -70,11 +78,9 @@ export default function CharacterDetailPage({ findCharacter, translation }) {
             Estatus
             <br />
             <span>
-              {
-                translation.status[characterFound.isItAlive][
-                  characterFound.gender
-                ]
-              }
+              {translation.status[characterFound.isItAlive][
+                characterFound.gender
+              ] || 'desconocido'}
             </span>
           </p>
           <p>
