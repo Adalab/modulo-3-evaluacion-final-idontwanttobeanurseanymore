@@ -39,6 +39,22 @@ function App() {
         );
       });
   }, []);
+  const translation = {
+    status: {
+      true: {
+        male: 'vivo',
+        female: 'viva',
+      },
+      false: {
+        male: 'muerto',
+        female: 'muerta',
+      },
+    },
+    gender: {
+      male: 'masculino',
+      female: 'femenino',
+    },
+  };
 
   const allHouses = characters
     .map((characterObj) => characterObj.house)
@@ -94,6 +110,7 @@ function App() {
             element={
               <CharacterDetailPage
                 findCharacter={findCharacter}
+                translation={translation}
               ></CharacterDetailPage>
             }
           ></Route>

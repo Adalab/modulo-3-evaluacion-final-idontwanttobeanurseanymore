@@ -5,7 +5,7 @@ import SlytherinImport from '../assets/harry-potter-slytherin.avif';
 import RavenclawImport from '../assets/harry-potter-ravenclaw.avif';
 import HufflepuffImport from '../assets/harry-potter-hufflepuff.avif';
 
-export default function CharacterDetailPage({ findCharacter }) {
+export default function CharacterDetailPage({ findCharacter, translation }) {
   useEffect(() => {
     document.body.classList.add('bgDetailCard');
 
@@ -27,23 +27,6 @@ export default function CharacterDetailPage({ findCharacter }) {
     imgHufflepuff: HufflepuffImport,
   };
 
-  const translation = {
-    status: {
-      true: {
-        male: 'vivo',
-        female: 'viva',
-      },
-      false: {
-        male: 'muerto',
-        female: 'muerta',
-      },
-    },
-    gender: {
-      male: 'masculino',
-      female: 'femenino',
-    },
-  };
-
   return (
     <article className={` detailCard house${characterFound.house}`}>
       <Link to='/' className='backLink'>
@@ -51,7 +34,7 @@ export default function CharacterDetailPage({ findCharacter }) {
       </Link>
       <img
         className='characterImgDetail'
-        src={`${characterFound.image ? characterFound.image : dummyCharacterImg}`}
+        src={characterFound.image}
         alt={`Foto de ${characterFound.name}`}
         title={`Foto de ${characterFound.name}`}
       ></img>
@@ -71,11 +54,17 @@ export default function CharacterDetailPage({ findCharacter }) {
         <hr />
         <div className='gridInfo'>
           <p>
+            Fecha de nacimiento
+            <br />
+            <span>{characterFound.birthDate || 'desconocida'}</span>
+          </p>
+          <p>
             Género
             <br /> <span>{translation.gender[characterFound.gender]}</span>
           </p>
           <p>
-            Estudiante: <span>{characterFound.student ? '✔' : '✗'}</span>
+            Ascendencia
+            <br /> <span>{characterFound.ancestry || 'desconocida'}</span>
           </p>
           <p>
             Estatus
@@ -88,17 +77,9 @@ export default function CharacterDetailPage({ findCharacter }) {
               }
             </span>
           </p>
-
           <p>
-            Fecha de nacimiento
-            <br />
-            <span>{characterFound.birthDate || 'desconocida'}</span>
+            Estudiante <span>{characterFound.student ? '✔' : '✗'}</span>
           </p>
-          <p>
-            Ascendencia
-            <br /> <span>{characterFound.ancestry || 'desconocida'}</span>
-          </p>
-
           <p>
             Intérprete
             <br />
