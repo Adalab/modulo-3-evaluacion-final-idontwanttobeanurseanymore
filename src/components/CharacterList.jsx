@@ -1,7 +1,6 @@
 import CharacterCard from './CharacterCard';
 
-export default function CharacterList({ characters, showList }) {
-  if (!showList) return;
+export default function CharacterList({ characters }) {
   return (
     <>
       <h2 className='filtersText'>Tu búsqueda:</h2>

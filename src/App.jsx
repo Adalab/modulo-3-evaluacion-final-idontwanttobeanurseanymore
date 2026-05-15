@@ -12,7 +12,6 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [characterName, setCharacterName] = useState('');
   const [characterHouse, setCharacterHouse] = useState('');
-  const [showList, setshowList] = useState(false);
 
   useEffect(() => {
     fetch('https://hp-api.onrender.com/api/characters')
@@ -37,7 +36,7 @@ function App() {
           })
         );
       });
-  }, [characterHouse]);
+  }, []);
 
   const allHouses = characters
     .map((characterObj) => characterObj.house)
@@ -46,13 +45,9 @@ function App() {
 
   const handleInputName = (ev) => {
     setCharacterName(ev.target.value);
-
-    setshowList(true);
   };
   const handleInputHouse = (ev) => {
     setCharacterHouse(ev.target.value);
-
-    setshowList(true);
   };
   const filteredCharacters = characters
     .filter((characterObj) =>
@@ -81,7 +76,6 @@ function App() {
                 houses={houses}
                 handleInputHouse={handleInputHouse}
                 handleInputName={handleInputName}
-                showList={showList}
               ></LandingPage>
             }
           ></Route>

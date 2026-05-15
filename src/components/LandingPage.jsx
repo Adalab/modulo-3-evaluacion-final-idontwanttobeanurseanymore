@@ -8,7 +8,6 @@ export default function LandingPage({
   houses,
   handleInputName,
   handleInputHouse,
-  showList,
 }) {
   const hasNoResults = characters.length === 0;
   return (
@@ -24,7 +23,7 @@ export default function LandingPage({
         {hasNoResults ? (
           <p>No se encuentran resultados</p>
         ) : (
-          <CharacterList characters={characters} showList={showList} />
+          <CharacterList characters={characters} />
         )}
       </section>
     </>

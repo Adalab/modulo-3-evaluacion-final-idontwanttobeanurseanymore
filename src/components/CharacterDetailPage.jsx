@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-
-export default function CharacterDetailPage({ findCharacter }) {
+import GryffindorImport from '../assets/harry-potter-gryffindor.avif';
+import SlytherinImport from '/harry-potter-slytherin.avif';
+export default function CharacterDetailPage({ findCharacter, characters }) {
   const [changeBg, setChangeBg] = useState(false);
   const changingBg = () => {
     setChangeBg(true);
@@ -16,11 +17,14 @@ export default function CharacterDetailPage({ findCharacter }) {
 
   const params = useParams();
   const characterFound = findCharacter(params.id);
+  if (!characterFound) {
+    return <p>Personaje no encontrado</p>;
+  }
   const dummyCharacterImg =
     'https://dummyimage.com/210x295/ffffff/656565.png&text=Harry+Potter';
   const housesImg = {
-    imgGryffindor: './src/assets/harry-potter-gryffindor.avif',
-    imgSlytherin: './src/assets/harry-potter-slytherin.avif',
+    imgGryffindor: { GryffindorImport },
+    imgSlytherin: { SlytherinImport },
     imgRavenclaw: './src/assets/harry-potter-ravenclaw.avif',
     imgHufflepuff: './src/assets/harry-potter-hufflepuff.avif',
   };
@@ -73,7 +77,6 @@ export default function CharacterDetailPage({ findCharacter }) {
           <img
             className='housesImg'
             src={housesImg[`img${characterFound.house}`]}
-            alt='house'
             alt={`Escudo de la casa ${characterFound.house} `}
             title={`Escudo de la casa ${characterFound.house} `}
           ></img>
