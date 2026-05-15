@@ -1,12 +1,11 @@
 import { Link, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import GryffindorImport from '../assets/harry-potter-gryffindor.avif';
-import SlytherinImport from '/harry-potter-slytherin.avif';
-export default function CharacterDetailPage({ findCharacter, characters }) {
-  const [changeBg, setChangeBg] = useState(false);
-  const changingBg = () => {
-    setChangeBg(true);
-  };
+import SlytherinImport from '../assets/harry-potter-slytherin.avif';
+import RavenclawImport from '../assets/harry-potter-ravenclaw.avif';
+import HufflepuffImport from '../assets/harry-potter-hufflepuff.avif';
+
+export default function CharacterDetailPage({ findCharacter }) {
   useEffect(() => {
     document.body.classList.add('bgDetailCard');
 
@@ -20,25 +19,13 @@ export default function CharacterDetailPage({ findCharacter, characters }) {
   if (!characterFound) {
     return <p>Personaje no encontrado</p>;
   }
-  const dummyCharacterImg =
-    'https://dummyimage.com/210x295/ffffff/656565.png&text=Harry+Potter';
-  const housesImg = {
-    imgGryffindor: { GryffindorImport },
-    imgSlytherin: { SlytherinImport },
-    imgRavenclaw: './src/assets/harry-potter-ravenclaw.avif',
-    imgHufflepuff: './src/assets/harry-potter-hufflepuff.avif',
-  };
-  let gender;
 
-  if (characterFound.gender) {
-    if (characterFound.gender === 'male') {
-      gender = 'masculino';
-    } else if (characterFound.gender === 'female') {
-      gender = 'femenino';
-    } else {
-      gender = 'desconocido';
-    }
-  }
+  const housesImg = {
+    imgGryffindor: GryffindorImport,
+    imgSlytherin: SlytherinImport,
+    imgRavenclaw: RavenclawImport,
+    imgHufflepuff: HufflepuffImport,
+  };
 
   const translation = {
     status: {
@@ -92,7 +79,7 @@ export default function CharacterDetailPage({ findCharacter, characters }) {
           </p>
           <p>
             Estatus
-            <br />{' '}
+            <br />
             <span>
               {
                 translation.status[characterFound.isItAlive][
@@ -123,6 +110,4 @@ export default function CharacterDetailPage({ findCharacter, characters }) {
       </section>
     </article>
   );
-}
-{
 }

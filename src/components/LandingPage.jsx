@@ -10,6 +10,7 @@ export default function LandingPage({
   handleInputHouse,
 }) {
   const hasNoResults = characters.length === 0;
+
   return (
     <>
       <Filters

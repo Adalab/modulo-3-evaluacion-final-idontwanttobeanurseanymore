@@ -27,7 +27,9 @@ function App() {
               gender: characterObj.gender,
               specie: characterObj.species,
               alternativeName: characterObj.alternate_names,
-              image: characterObj.image,
+              image:
+                characterObj.image ||
+                'https://dummyimage.com/210x295/ffffff/656565.png&text=Harry+Potter',
               actor: characterObj.actor,
               student: characterObj.hogwartsStudent,
               ancestry: characterObj.ancestry,
@@ -44,9 +46,11 @@ function App() {
   const houses = [...new Set(allHouses)];
 
   const handleInputName = (ev) => {
+    ev.preventDefault();
     setCharacterName(ev.target.value);
   };
   const handleInputHouse = (ev) => {
+    ev.preventDefault();
     setCharacterHouse(ev.target.value);
   };
   const filteredCharacters = characters

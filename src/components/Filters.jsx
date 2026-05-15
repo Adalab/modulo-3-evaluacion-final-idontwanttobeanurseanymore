@@ -6,7 +6,7 @@ export default function Filters({
   handleInputName,
 }) {
   return (
-    <form className='filters'>
+    <form className='filters' onSubmit={(ev) => ev.preventDefault()}>
       <h2 className='filtersText filtersMainText'>Filtrar por...</h2>
       <label className='filterInput' htmlFor='search_name'>
         Nombre:
@@ -29,7 +29,7 @@ export default function Filters({
           onChange={handleInputHouse}
           value={house}
         >
-          <option>Todos</option>
+          <option value=''>Todos</option>
           {houses.map((eachHouse) => (
             <option key={eachHouse} value={eachHouse}>
               {eachHouse}

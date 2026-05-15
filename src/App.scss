@@ -45,10 +45,6 @@ body {
   color: var(--text-primary);
 }
 
-.house {
-  background-color: var(--default-house-primary);
-  color: var(--default-house-secondary);
-}
 a {
   text-align: center;
   margin-top: 0.5rem;
@@ -64,7 +60,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
 
   padding: 1rem 1.5rem;
   background-color: var(--bg-secondary);
@@ -130,8 +125,7 @@ header {
 }
 .filtersText {
   color: var(--text-primary);
-  gap: 10px;
-  padding: 15px;
+  padding: 1rem;
 }
 .filtersMainText {
   padding: 1rem 0;
@@ -139,7 +133,6 @@ header {
 .filterInput,
 .filterSelect {
   width: 100%;
-  padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid var(--accent-primary);
   background: var(--bg-secondary);
@@ -244,8 +237,6 @@ hr {
 
     border-radius: 50%;
     padding: 4px;
-
-    //background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 10px var(--accent-detail);
     transition: transform 0.3s ease;
   }
@@ -310,29 +301,18 @@ hr {
   .characterHouse {
     font-size: 1.1rem;
   }
-  /*.filters {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 15px;
-}*/
+
   .filters {
-    width: 100%;
     max-width: 600px;
   }
   .filtersText {
     width: 100%;
     max-width: 600px;
-    text-align: center;
   }
-  .filtersMainText {
-    text-align: left;
-  }
+
   .filterInput,
   .filterSelect {
     min-width: 180px;
-
-    width: 100%;
     max-width: 600px;
   }
 
@@ -390,7 +370,6 @@ hr {
 
   .filterInput,
   .filterSelect {
-    width: 100%;
     max-width: 600px;
     min-width: 200px;
   }
