@@ -24,7 +24,7 @@
   --default-house-primary: #444;
   --default-house-secondary: #ccc;
 
-  --bg-main: linear-gradient(
+  --howgarts-primary: linear-gradient(
     135deg,
     var(--gryffindor-primary),
     var(--slytherin-primary),
@@ -41,7 +41,7 @@
 }
 
 body {
-  background: var(--bg-main);
+  background: var(--gryffindor-primary);
   min-height: 100vh;
   background-attachment: fixed;
   color: var(--text-primary);
@@ -95,8 +95,8 @@ header {
   padding: 15px;
   border-radius: 12px;
   background: var(--bg-secondary);
+  list-style: none;
 
-  text-align: center;
   border: 2px solid var(--accent-primary);
   transition: transform 0.2s;
 
@@ -162,6 +162,9 @@ hr {
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
+}
+.bgDetailCard {
+  background: var(--howgarts-primary);
 }
 .detailCard {
   position: relative;
