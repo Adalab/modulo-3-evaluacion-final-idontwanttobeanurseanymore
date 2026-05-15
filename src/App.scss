@@ -24,7 +24,7 @@
   --default-house-primary: #444;
   --default-house-secondary: #ccc;
 
-  --howgarts-primary: linear-gradient(
+  --hogwarts-primary: linear-gradient(
     135deg,
     var(--gryffindor-primary),
     var(--slytherin-primary),
@@ -79,7 +79,7 @@ header {
 }
 .headerTitle {
   font-size: 1rem;
-  text-align: right;
+  text-align: center;
   color: var(--text-primary);
   font-weight: bold;
 }
@@ -135,6 +135,9 @@ header {
   gap: 10px;
   padding: 15px;
 }
+.filtersMainText {
+  padding: 1rem 0;
+}
 .filterInput,
 .filterSelect {
   width: 100%;
@@ -164,7 +167,7 @@ hr {
   );
 }
 .bgDetailCard {
-  background: var(--howgarts-primary);
+  background: var(--hogwarts-primary);
 }
 .detailCard {
   position: relative;
@@ -287,7 +290,7 @@ hr {
 }
 
 //MEDIA
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .headerLogo {
     width: 55px;
   }
@@ -309,19 +312,30 @@ hr {
   .characterHouse {
     font-size: 1.1rem;
   }
-
+  /*.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}*/
   .filters {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1.5rem 2rem;
+    width: 100%;
+    max-width: 600px;
   }
-
+  .filtersText {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+  }
+  .filtersMainText {
+    text-align: left;
+  }
   .filterInput,
   .filterSelect {
     min-width: 180px;
-    width: auto;
+
+    width: 100%;
+    max-width: 600px;
   }
 
   .detailCard {
@@ -370,7 +384,6 @@ hr {
 
   // FILTROS
   .filters {
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -379,13 +392,16 @@ hr {
 
   .filterInput,
   .filterSelect {
-    width: auto;
+    width: 100%;
+    max-width: 600px;
     min-width: 200px;
   }
 
   .filtersText {
-    text-align: center;
+    text-align: left;
     font-size: 1.1rem;
+    width: 100%;
+    max-width: 600px;
   }
 
   // DETAIL PAGE

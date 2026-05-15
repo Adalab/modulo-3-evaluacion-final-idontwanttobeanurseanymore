@@ -7,7 +7,7 @@ export default function Filters({
 }) {
   return (
     <form className='filters'>
-      <h2 className='filtersText'>Filtrar por...</h2>
+      <h2 className='filtersText filtersMainText'>Filtrar por...</h2>
       <label className='filterInput' htmlFor='search_name'>
         Nombre:
         <input
@@ -29,6 +29,7 @@ export default function Filters({
           onChange={handleInputHouse}
           value={house}
         >
+          <option>Todos</option>
           {houses.map((eachHouse) => (
             <option key={eachHouse} value={eachHouse}>
               {eachHouse}
