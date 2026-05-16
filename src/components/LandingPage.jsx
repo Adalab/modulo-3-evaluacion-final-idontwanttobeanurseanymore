@@ -8,6 +8,8 @@ export default function LandingPage({
   houses,
   handleInputName,
   handleInputHouse,
+  sortBy,
+  setSortBy,
 }) {
   const hasNoResults = characters.length === 0;
 
@@ -19,8 +21,10 @@ export default function LandingPage({
         houses={houses}
         handleInputHouse={handleInputHouse}
         handleInputName={handleInputName}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
       ></Filters>
-      <section class='filtersText'>
+      <section className='filtersText'>
         {hasNoResults ? (
           <p>"{name}" no coincide con ningún personaje</p>
         ) : (

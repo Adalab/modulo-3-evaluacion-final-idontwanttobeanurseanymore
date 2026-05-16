@@ -4,6 +4,8 @@ export default function Filters({
   houses,
   handleInputHouse,
   handleInputName,
+  sortBy,
+  setSortBy,
 }) {
   return (
     <form className='filters' onSubmit={(ev) => ev.preventDefault()}>
@@ -36,6 +38,36 @@ export default function Filters({
             </option>
           ))}
         </select>
+      </label>
+      <h2 className='filtersText filtersMainText'>Ordenar por...</h2>
+      <div className='filterRadio'>
+        <label htmlFor='sort_search2' className='radioBtn'>
+          <input
+            className='radioBtn'
+            type='radio'
+            id='sort_search2'
+            name='sort_search'
+            value='cba'
+            checked={sortBy === 'default'}
+            onChange={() => setSortBy('default')}
+          ></input>
+          Destacados
+        </label>
+        <label htmlFor='sort_search1' className='radioBtn'>
+          <input
+            className='radioBtn'
+            type='radio'
+            id='sort_search1'
+            name='sort_search'
+            value='abc'
+            checked={sortBy === 'abc'}
+            onChange={() => setSortBy('abc')}
+          ></input>
+          Orden alfabético
+        </label>
+      </div>
+      <label>
+        <input type='checkbox'></input>
       </label>
     </form>
   );

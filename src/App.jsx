@@ -15,6 +15,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [characterName, setCharacterName] = useState('');
   const [characterHouse, setCharacterHouse] = useState('');
+  const [sortBy, setSortBy] = useState('default');
 
   const iconsImg = {
     imgCastle: Castle,
@@ -43,6 +44,9 @@ function App() {
             };
           })
         );
+      })
+      .catch((error) => {
+        console.error('Ha ocurrido un error:', error);
       });
   }, []);
   const translation = {
@@ -81,13 +85,29 @@ function App() {
     ev.preventDefault();
     setCharacterHouse(ev.target.value);
   };
+
   const filteredCharacters = [...characters]
     .filter((characterObj) =>
       characterObj.name.toLowerCase().includes(characterName.toLowerCase())
     )
     .filter((characterObj) =>
       characterHouse ? characterObj.house === characterHouse : true
-    );
+    )
+    .sort((a, b) => {
+      if (sortBy === 'abc') {
+        const search = characterName.toLowerCase(); //mi busqueda
+        const score = (name) => {
+          const listName = name.toLowerCase();
+          if (listName.startsWith(search)) return 0; //
+          if (listName.includes(search)) return 1;
+          return 2;
+        };
+        return (
+          score(a.name) - score(b.name) ||
+          a.name.localeCompare(b.name, 'es', { sensitivity: 'base' })
+        );
+      }
+    });
 
   const findCharacter = (searchId) => {
     return characters.find((characterObj) => characterObj.id === searchId);
@@ -108,6 +128,8 @@ function App() {
                 houses={houses}
                 handleInputHouse={handleInputHouse}
                 handleInputName={handleInputName}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
               ></LandingPage>
             }
           ></Route>
@@ -131,21 +153,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /**    .sort((a, b) => {
-      const search = characterName.toLowerCase();
-
-      const score = (name) => {
-        const n = name.toLowerCase();
-        if (n.startsWith(search)) return 0; 
-        if (n.includes(search)) return 1; 
-        return 2;
-      };
-
-      return (
-        score(a.name) - score(b.name) ||
-        a.name.localeCompare(b.name, 'es', { sensitivity: 'base' })
-      );
-    }); */
-}
