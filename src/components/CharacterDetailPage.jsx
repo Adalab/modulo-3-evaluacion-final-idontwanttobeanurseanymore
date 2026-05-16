@@ -1,4 +1,4 @@
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import GryffindorImport from '../assets/harry-potter-gryffindor.avif';
 import SlytherinImport from '../assets/harry-potter-slytherin.avif';
@@ -20,7 +20,11 @@ export default function CharacterDetailPage({ findCharacter, translation }) {
   const params = useParams();
   const characterFound = findCharacter(params.id);
   if (!characterFound) {
-    return <Error404Page></Error404Page>;
+    return (
+      <Error404Page>
+        <Link></Link>
+      </Error404Page>
+    );
   }
 
   const housesImg = {
