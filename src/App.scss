@@ -274,7 +274,23 @@ hr {
   background-color: var(--ravenclaw-primary);
   color: var(--ravenclaw-secondary);
 }
+.error404Page {
+  display: flex;
+  flex-direction: column;
+  font-weight: lighter;
+  gap: 20px;
+  a {
+    text-align: center;
+    margin-top: 0.5rem;
+    color: white;
+    text-decoration: none;
 
+    &:hover {
+      text-decoration: underline;
+      transform: none;
+    }
+  }
+}
 //MEDIA 600px
 @media screen and (min-width: 600px) {
   .headerLogo {

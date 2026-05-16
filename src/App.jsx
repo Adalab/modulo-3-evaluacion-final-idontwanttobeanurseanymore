@@ -120,7 +120,7 @@ function App() {
               ></CharacterDetailPage>
             }
           ></Route>
-          <Route path='*' element={<Error404Page></Error404Page>}></Route>
+          <Route path=':*' element={<Error404Page></Error404Page>}></Route>
         </Routes>
 
         <section></section>

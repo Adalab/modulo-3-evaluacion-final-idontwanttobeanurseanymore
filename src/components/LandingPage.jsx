@@ -20,9 +20,9 @@ export default function LandingPage({
         handleInputHouse={handleInputHouse}
         handleInputName={handleInputName}
       ></Filters>
-      <section>
+      <section class='filtersText'>
         {hasNoResults ? (
-          <p>No se encuentran resultados</p>
+          <p>"{name}" no coincide con ningún personaje</p>
         ) : (
           <CharacterList characters={characters} />
         )}

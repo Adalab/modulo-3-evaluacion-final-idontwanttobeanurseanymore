@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import GryffindorImport from '../assets/harry-potter-gryffindor.avif';
 import SlytherinImport from '../assets/harry-potter-slytherin.avif';
@@ -6,6 +6,7 @@ import RavenclawImport from '../assets/harry-potter-ravenclaw.avif';
 import HufflepuffImport from '../assets/harry-potter-hufflepuff.avif';
 
 import Castle from '../assets/icon-magic-2.png';
+import Error404Page from './Error404Page';
 
 export default function CharacterDetailPage({ findCharacter, translation }) {
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function CharacterDetailPage({ findCharacter, translation }) {
   const params = useParams();
   const characterFound = findCharacter(params.id);
   if (!characterFound) {
-    return <p>Personaje no encontrado</p>;
+    return <Error404Page></Error404Page>;
   }
 
   const housesImg = {
