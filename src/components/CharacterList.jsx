@@ -3,7 +3,7 @@ import CharacterCard from './CharacterCard';
 export default function CharacterList({ characters }) {
   return (
     <>
-      <h2 className='filtersText'>Tu búsqueda:</h2>
+      <p className='searchText'>Tu búsqueda:</p>
       <ul className='characterUl'>
         {characters.map((characterObj) => (
           <li key={characterObj.id} className='characterList'>

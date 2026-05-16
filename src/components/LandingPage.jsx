@@ -24,7 +24,7 @@ export default function LandingPage({
         sortBy={sortBy}
         setSortBy={setSortBy}
       ></Filters>
-      <section className='filtersText'>
+      <section className='searchText'>
         {hasNoResults ? (
           <p>"{name}" no coincide con ningún personaje</p>
         ) : (

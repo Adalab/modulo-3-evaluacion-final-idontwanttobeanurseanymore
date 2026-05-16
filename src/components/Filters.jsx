@@ -9,7 +9,7 @@ export default function Filters({
 }) {
   return (
     <form className='filters' onSubmit={(ev) => ev.preventDefault()}>
-      <h2 className='filtersText filtersMainText'>Filtrar por...</h2>
+      <h3 className='filtersMainText'>Filtrar por:</h3>
       <label className='filterInput' htmlFor='search_name'>
         Nombre:
         <input
@@ -39,7 +39,7 @@ export default function Filters({
           ))}
         </select>
       </label>
-      <h2 className='filtersText filtersMainText'>Ordenar por...</h2>
+      <h3 className='filtersMainText'>Ordenar por:</h3>
       <div className='filterRadio'>
         <label htmlFor='sort_search2' className='radioBtn'>
           <input
