@@ -16,6 +16,7 @@ function App() {
   const [characterName, setCharacterName] = useState('');
   const [characterHouse, setCharacterHouse] = useState('');
   const [sortBy, setSortBy] = useState('default');
+  const [human, setHuman] = useState();
 
   const iconsImg = {
     imgCastle: Castle,
@@ -41,6 +42,7 @@ function App() {
               student: characterObj.hogwartsStudent,
               ancestry: characterObj.ancestry,
               birthDate: characterObj.dateOfBirth || null,
+              human: characterObj.species === 'human',
             };
           })
         );
@@ -85,6 +87,9 @@ function App() {
     ev.preventDefault();
     setCharacterHouse(ev.target.value);
   };
+  const handleCheckbox = (ev) => {
+    setHuman(ev.target.value);
+  };
 
   const filteredCharacters = [...characters]
     .filter((characterObj) =>
@@ -93,12 +98,16 @@ function App() {
     .filter((characterObj) =>
       characterHouse ? characterObj.house === characterHouse : true
     )
+    .filter((characterObj) =>
+      human ? characterObj.human === characterObj : true
+    )
+
     .sort((a, b) => {
       if (sortBy === 'abc') {
         const search = characterName.toLowerCase(); //mi busqueda
         const score = (name) => {
-          const listName = name.toLowerCase();
-          if (listName.startsWith(search)) return 0; //
+          const listName = name.toLowerCase(); // la lista
+          if (listName.startsWith(search)) return 0;
           if (listName.includes(search)) return 1;
           return 2;
         };
@@ -112,7 +121,7 @@ function App() {
   const findCharacter = (searchId) => {
     return characters.find((characterObj) => characterObj.id === searchId);
   };
-
+  console.log(human);
   return (
     <div>
       <Header></Header>
@@ -130,6 +139,7 @@ function App() {
                 handleInputName={handleInputName}
                 sortBy={sortBy}
                 setSortBy={setSortBy}
+                //human={human}
               ></LandingPage>
             }
           ></Route>

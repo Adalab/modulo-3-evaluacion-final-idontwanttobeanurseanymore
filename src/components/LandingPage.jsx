@@ -10,6 +10,7 @@ export default function LandingPage({
   handleInputHouse,
   sortBy,
   setSortBy,
+  human,
 }) {
   const hasNoResults = characters.length === 0;
 
@@ -23,6 +24,7 @@ export default function LandingPage({
         handleInputName={handleInputName}
         sortBy={sortBy}
         setSortBy={setSortBy}
+        human={human}
       ></Filters>
       <section className='searchText'>
         {hasNoResults ? (

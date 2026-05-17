@@ -76,8 +76,9 @@ export default function Filters({
               className='filterBox'
               id='cbox1'
               value='first_checkbox'
+              onChange={() => setSortBy('human')}
             ></input>
-            Género femenino
+            Humanos
           </label>
           <label className='checkItem' htmlFor='cbox2'>
             <input
@@ -86,7 +87,7 @@ export default function Filters({
               id='cbox2'
               value='second_checkbox'
             ></input>
-            Género masculino
+            Sin casa
           </label>
           <label className='checkItem' htmlFor='cbox3'>
             <input
@@ -95,7 +96,16 @@ export default function Filters({
               id='cbox3'
               value='third_checkbox'
             ></input>
-            Estudiantes
+            Con imagen
+          </label>
+          <label className='checkItem' htmlFor='cbox3'>
+            <input
+              type='checkbox'
+              className='filterBox'
+              id='cbox3'
+              value='third_checkbox'
+            ></input>
+            Con imagen
           </label>
         </div>
       </div>
