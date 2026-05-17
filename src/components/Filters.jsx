@@ -9,8 +9,8 @@ export default function Filters({
 }) {
   return (
     <form className='filters' onSubmit={(ev) => ev.preventDefault()}>
-      <h3 className='filtersMainText'>Filtrar por:</h3>
       <div className='filterTop'>
+        <h3 className='filtersMainText'>Filtrar por:</h3>
         <label className='inputType' htmlFor='search_name'>
           <input
             className='inputTypeText'
@@ -40,61 +40,64 @@ export default function Filters({
           </select>
         </label>
       </div>
-
-      <h3 className='filtersMainText'>Ordenar por:</h3>
-      <div className='filterRadio'>
-        <label htmlFor='sort_search2' className='radioBtn'>
-          <input
-            type='radio'
-            id='sort_search2'
-            name='sort_search'
-            value='cba'
-            checked={sortBy === 'default'}
-            onChange={() => setSortBy('default')}
-          ></input>{' '}
-          Destacados
-        </label>
-        <label htmlFor='sort_search1' className='radioBtn'>
-          <input
-            type='radio'
-            id='sort_search1'
-            name='sort_search'
-            value='abc'
-            checked={sortBy === 'abc'}
-            onChange={() => setSortBy('abc')}
-          ></input>{' '}
-          Orden alfabético
-        </label>
+      <div className='filterRow'>
+        <h3 className='filtersMainText'>Ordenar por:</h3>
+        <div className='filterRadio'>
+          <label htmlFor='sort_search2' className='radioBtn'>
+            <input
+              type='radio'
+              id='sort_search2'
+              name='sort_search'
+              value='cba'
+              checked={sortBy === 'default'}
+              onChange={() => setSortBy('default')}
+            ></input>{' '}
+            Destacados
+          </label>
+          <label htmlFor='sort_search1' className='radioBtn'>
+            <input
+              type='radio'
+              id='sort_search1'
+              name='sort_search'
+              value='abc'
+              checked={sortBy === 'abc'}
+              onChange={() => setSortBy('abc')}
+            ></input>{' '}
+            Orden alfabético
+          </label>
+        </div>
       </div>
-      <h3 className='filtersMainText'>Más filtros:</h3>
-      <div className='filterCheckBox'>
-        <input
-          type='checkbox'
-          className='filterCheckBox'
-          id='cbox1'
-          value='first_checkbox'
-        ></input>
-        <label className='radioBtn' htmlFor='cbox1'>
-          uno
-        </label>
-        <input
-          type='checkbox'
-          className='filterCheckBox'
-          id='cbox2'
-          value='second_checkbox'
-        ></input>
-        <label className='radioBtn' htmlFor='cbox2'>
-          dos
-        </label>
-        <input
-          type='checkbox'
-          className='filterCheckBox'
-          id='cbox3'
-          value='third_checkbox'
-        ></input>
-        <label className='radioBtn' htmlFor='cbox3'>
-          tres
-        </label>
+      <div className='filterRow'>
+        <h3 className='filtersMainText'>Más filtros:</h3>
+        <div className='filterCheckBox'>
+          <label className='checkItem' htmlFor='cbox1'>
+            <input
+              type='checkbox'
+              className='filterBox'
+              id='cbox1'
+              value='first_checkbox'
+            ></input>
+            Género femenino
+          </label>
+          <label className='checkItem' htmlFor='cbox2'>
+            <input
+              type='checkbox'
+              className='filterBox'
+              id='cbox2'
+              value='second_checkbox'
+            ></input>
+            Género masculino
+          </label>
+          <label className='checkItem' htmlFor='cbox3'>
+            <input
+              type='checkbox'
+              className='filterBox'
+              id='cbox3'
+              value='third_checkbox'
+            ></input>
+            Estudiantes
+          </label>
+        </div>
       </div>
     </form>
   );
