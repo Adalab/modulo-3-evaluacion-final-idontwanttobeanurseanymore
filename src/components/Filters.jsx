@@ -105,11 +105,11 @@ export default function Filters({
             ></input>
             Con imagen
           </label>
-          <label className='checkItem' htmlFor='cbox3'>
+          <label className='checkItem' htmlFor='cbox4'>
             <input
               type='checkbox'
               className='filterBox'
-              id='cbox3'
+              id='cbox4'
               value='student'
               onChange={handleCheckbox}
               checked={features.includes('student')}
