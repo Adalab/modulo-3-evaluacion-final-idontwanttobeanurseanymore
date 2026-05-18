@@ -118,8 +118,10 @@ header {
   gap: 10px;
   border-radius: 10px;
   font-weight: 100;
-  margin: 1rem;
+  margin: 1rem auto;
   padding: 0.5rem;
+  width: 97%;
+  max-width: 800px;
   color: var(--text-primary);
   border: 1px solid var(--accent-primary);
   background-color: var(--bg-secondary);
@@ -135,11 +137,14 @@ header {
 .filterTop {
   display: flex;
   width: 100%;
+  max-width: 800px;
 }
 .filterRow {
   display: flex;
   align-items: center;
   width: 100%;
+  max-width: 800px;
+  margin: 0;
 }
 .inputTypeText,
 .inputTypeSelect {
@@ -347,18 +352,9 @@ hr {
     }
   }
 }
-.filters {
-  width: 100%;
-  max-width: 800px;
-  margin: 1rem auto;
-}
-.filterRow {
-  width: 100%;
-  max-width: 800px;
-  margin: 0;
-}
+
 //MEDIA 600px
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 685px) {
   main {
     display: flex;
     flex-direction: column;
@@ -392,8 +388,7 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 90%;
-    width: 100%;
+    max-width: 800px;
     padding: 1rem 2rem;
   }
   .filterTop {
@@ -411,6 +406,11 @@ hr {
   }
   .filterCheckBox {
     flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0.8rem 0;
+  }
+  .checkItem {
+    gap: 0.2rem;
   }
   .filterRadio {
     display: flex;
@@ -461,11 +461,6 @@ hr {
   .filtersMainText {
     font-size: 1.5rem;
     min-width: 160px;
-  }
-
-  .inputTypeText,
-  .inputTypeSelect {
-    justify-content: space-around;
   }
 
   // DETAIL PAGE

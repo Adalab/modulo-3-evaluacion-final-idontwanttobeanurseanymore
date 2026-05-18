@@ -6,6 +6,8 @@ export default function Filters({
   handleInputName,
   sortBy,
   setSortBy,
+  handleCheckbox,
+  features,
 }) {
   return (
     <form className='filters' onSubmit={(ev) => ev.preventDefault()}>
@@ -75,8 +77,9 @@ export default function Filters({
               type='checkbox'
               className='filterBox'
               id='cbox1'
-              value='first_checkbox'
-              onChange={() => setSortBy('human')}
+              value='human'
+              onChange={handleCheckbox}
+              checked={features.includes('human')}
             ></input>
             Humanos
           </label>
@@ -85,7 +88,9 @@ export default function Filters({
               type='checkbox'
               className='filterBox'
               id='cbox2'
-              value='second_checkbox'
+              value='noHouse'
+              onChange={handleCheckbox}
+              checked={features.includes('noHouse')}
             ></input>
             Sin casa
           </label>
@@ -94,7 +99,9 @@ export default function Filters({
               type='checkbox'
               className='filterBox'
               id='cbox3'
-              value='third_checkbox'
+              value='hasImage'
+              onChange={handleCheckbox}
+              checked={features.includes('hasImage')}
             ></input>
             Con imagen
           </label>
@@ -103,71 +110,14 @@ export default function Filters({
               type='checkbox'
               className='filterBox'
               id='cbox3'
-              value='third_checkbox'
+              value='student'
+              onChange={handleCheckbox}
+              checked={features.includes('student')}
             ></input>
-            Con imagen
+            Solo estudiantes
           </label>
         </div>
       </div>
     </form>
   );
 }
-/*//FILTERS
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 15px;
-  color: var(--text-primary);
-  font-weight: 100;
-}
-
-.searchText {
-  padding: 0 10px;
-}
-.filtersMainText {
-  font-size: 1rem;
-  font-weight: 400;
-}
-.filterInput,
-.filterSelect,
-.filterRadio,
-.inputType,
-.inputTypeText {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid var(--accent-primary);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  padding: 0.5rem;
-  margin: 0.2rem;
-  flex-direction: column;
-
-  &:focus {
-    outline: none;
-    border-color: var(--accent-secondary);
-    box-shadow: var(--box-shadow-input);
-  }
-}
-.filterRadio {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  font-size: 0.8rem;
-  text-align: center;
-}
-.inputType {
-  display: flex;
-  gap: 10px;
-  padding: 0.3rem;
-}
-.inputTypeText,
-.inputTypeSelect {
-  width: 90%;
-  border-radius: 10px;
-  border: 1px solid var(--accent-primary);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  padding: 0.5rem;
-  margin: 0 0.5rem;
-}* */

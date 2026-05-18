@@ -11,6 +11,8 @@ export default function LandingPage({
   sortBy,
   setSortBy,
   human,
+  handleCheckbox,
+  features,
 }) {
   const hasNoResults = characters.length === 0;
 
@@ -24,7 +26,8 @@ export default function LandingPage({
         handleInputName={handleInputName}
         sortBy={sortBy}
         setSortBy={setSortBy}
-        human={human}
+        handleCheckbox={handleCheckbox}
+        features={features}
       ></Filters>
       <section className='searchText'>
         {hasNoResults ? (

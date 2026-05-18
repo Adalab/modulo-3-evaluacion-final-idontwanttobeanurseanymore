@@ -16,11 +16,10 @@ function App() {
   const [characterName, setCharacterName] = useState('');
   const [characterHouse, setCharacterHouse] = useState('');
   const [sortBy, setSortBy] = useState('default');
-  const [human, setHuman] = useState();
+  const [features, setFeatures] = useState([]);
 
   const iconsImg = {
     imgCastle: Castle,
-    //imgHat: Hat,
     imgHarry: Harry,
   };
   useEffect(() => {
@@ -37,6 +36,7 @@ function App() {
               gender: characterObj.gender,
               specie: characterObj.species,
               alternativeName: characterObj.alternate_names,
+              hasRealImage: !!characterObj.image,
               image: characterObj.image || iconsImg['imgHarry'],
               actor: characterObj.actor,
               student: characterObj.hogwartsStudent,
@@ -88,20 +88,38 @@ function App() {
     setCharacterHouse(ev.target.value);
   };
   const handleCheckbox = (ev) => {
-    setHuman(ev.target.value);
-  };
+    const { value, checked } = ev.target;
 
+    setFeatures((prev) => {
+      if (checked) {
+        return [...prev, value];
+      } else {
+        return prev.filter((item) => item !== value);
+      }
+    });
+  };
   const filteredCharacters = [...characters]
-    .filter((characterObj) =>
-      characterObj.name.toLowerCase().includes(characterName.toLowerCase())
+    .filter(
+      (
+        characterObj //filter()->array de los que coinciden
+      ) => characterObj.name.toLowerCase().includes(characterName.toLowerCase())
     )
     .filter((characterObj) =>
       characterHouse ? characterObj.house === characterHouse : true
     )
-    .filter((characterObj) =>
-      human ? characterObj.human === characterObj : true
-    )
+    .filter((characterObj) => {
+      if (features.length === 0) return true;
 
+      return features.every((feature) => {
+        // true/false de todos los que cumplen
+        if (feature === 'human') return characterObj.human === true;
+        if (feature === 'noHouse') return characterObj.house === '';
+        if (feature === 'hasImage') return characterObj.hasRealImage;
+        if (feature === 'student') return characterObj.student === true;
+        //some() -> true/false al menos uno coincide
+        return true;
+      });
+    })
     .sort((a, b) => {
       if (sortBy === 'abc') {
         const search = characterName.toLowerCase(); //mi busqueda
@@ -121,7 +139,7 @@ function App() {
   const findCharacter = (searchId) => {
     return characters.find((characterObj) => characterObj.id === searchId);
   };
-  console.log(human);
+
   return (
     <div>
       <Header></Header>
@@ -139,7 +157,8 @@ function App() {
                 handleInputName={handleInputName}
                 sortBy={sortBy}
                 setSortBy={setSortBy}
-                //human={human}
+                handleCheckbox={handleCheckbox}
+                features={features}
               ></LandingPage>
             }
           ></Route>
