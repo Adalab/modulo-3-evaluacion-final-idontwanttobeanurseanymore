@@ -31,7 +31,7 @@ export default function LandingPage({
       ></Filters>
       <section className='searchText'>
         {hasNoResults ? (
-          <p>"{name}" no coincide con ningún personaje</p>
+          <p className='noSearch'>"{name}" no coincide con ningún personaje</p>
         ) : (
           <CharacterList characters={characters} />
         )}

@@ -38,8 +38,8 @@
   --text-constant-detail-dark: black;
   --box-shadow-neon: 0 0 10px #fff, 0 0 20px #ffd700;
   --box-shadow-input: 0 0 5px #ffd700;
-  --link-color: gold;
-  --link-shadow: gold;
+  --link-color: #ffd700;
+  --link-shadow: #ffd700;
   --link-bg: #1e2843;
 }
 
@@ -62,6 +62,7 @@ a {
 }
 header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem;
@@ -70,14 +71,48 @@ header {
   border-bottom: 2px solid;
   box-shadow: var(--box-shadow-input);
 }
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  gap: 0.5rem;
+
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-top: 2px solid;
+  box-shadow: var(--box-shadow-input);
+}
 .headerLogo {
   width: 60px;
   height: auto;
 }
-.headerTitle {
+.headerTitle,
+.footerTitle {
   font-size: 1rem;
   text-align: center;
   font-weight: bold;
+}
+.footerContent {
+  font-size: 0.8rem;
+  font-weight: 100;
+}
+.footerLink {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-color);
+  }
+}
+.noSearch {
+  min-height: calc(100vh - 200px);
 }
 .characterUl {
   display: grid;
@@ -131,6 +166,7 @@ header {
 }
 .searchText {
   text-align: center;
+  flex: 1;
 }
 .filtersMainText {
   font-size: 0.8rem;
@@ -407,11 +443,14 @@ hr {
     justify-content: center;
     align-items: center;
   }
-  header {
+  header,
+  footer {
     justify-content: center;
     gap: 1rem;
+    width: 100%;
   }
-  .headerTitle {
+  .headerTitle,
+  .footerTitle {
     font-size: 1.3rem;
   }
   .characterUl {
@@ -489,7 +528,8 @@ hr {
 
 //MEDIA 1024px
 @media screen and (min-width: 1024px) {
-  .headerTitle {
+  .headerTitle,
+  .footerTitle {
     font-size: 1.6rem;
   }
   .characterUl {

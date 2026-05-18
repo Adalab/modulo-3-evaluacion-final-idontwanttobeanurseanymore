@@ -173,8 +173,6 @@ function App() {
           ></Route>
           <Route path='*' element={<Error404Page></Error404Page>}></Route>
         </Routes>
-
-        <section></section>
         <Footer></Footer>
       </main>
     </div>
