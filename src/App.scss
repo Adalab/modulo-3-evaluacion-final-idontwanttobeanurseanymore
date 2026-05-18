@@ -335,24 +335,66 @@ hr {
   background-color: var(--ravenclaw-primary);
   color: var(--ravenclaw-secondary);
 }
+//Error 404 Page
 .error404Page {
   display: flex;
   flex-direction: column;
   font-weight: lighter;
   gap: 20px;
+  padding: 1rem;
+  text-align: center;
+  align-items: center;
   a {
     text-align: center;
     margin-top: 0.5rem;
-    color: white;
+    color: var(--accent-primary);
     text-decoration: none;
 
     &:hover {
       text-decoration: underline;
+      color: var(--accent-primary);
       transform: none;
     }
   }
 }
+.error404Pagetitle,
+.error404PageContent {
+  color: var(--accent-secondary);
+}
+.error404PageImg1 {
+  top: 200px;
+  left: 10px;
+  width: 100px;
+  //transform: translate(-50%, -50%);
+}
+.error404Link {
+  position: relative;
+  width: 100%;
+  width: 300px;
+  object-fit: cover;
+  object-position: 50% 80%;
 
+  .error404PageImg2 {
+    width: 90%;
+    height: 100%;
+    max-width: 300px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .error404TextLink {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    color: white;
+    text-align: end;
+    background: var(--ravenclaw-primary);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    border-radius: 40% 60% 50% 70% / 60% 40% 60% 50%;
+    //background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    //font-weight: bold;
+  }
+}
 //MEDIA 600px
 @media screen and (min-width: 685px) {
   main {
@@ -435,6 +477,9 @@ hr {
   .gridInfo {
     max-width: 420px;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .error404Page {
+    font-size: 2rem;
   }
 }
 
