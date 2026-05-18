@@ -11,12 +11,11 @@ export default function Error404Page() {
       <p className='error404PageContent'>
         No hemos podido encontrar la página que buscas
       </p>{' '}
-      <Link to='/'>
-        <div className='error404Link'>
+      <Link to='/' className='error404Link'>
+        <div className='error404Img'>
           <img src={trainImg} className='error404PageImg2'></img>
-
-          <p className='error404TextLink'>Volver</p>
         </div>
+        <p className='error404TextLink'>Volver</p>
       </Link>
     </article>
   );

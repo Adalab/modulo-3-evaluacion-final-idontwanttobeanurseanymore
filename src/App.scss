@@ -36,8 +36,11 @@
   --accent-detail: #d4af37ce;
   --text-constant-detail: #f5d67b;
   --text-constant-detail-dark: black;
-  --box-shadow-neon: 0 0 10px #fff, 0 0 20px gold;
-  --box-shadow-input: 0 0 5px gold;
+  --box-shadow-neon: 0 0 10px #fff, 0 0 20px #ffd700;
+  --box-shadow-input: 0 0 5px #ffd700;
+  --link-color: gold;
+  --link-shadow: gold;
+  --link-bg: #1e2843;
 }
 
 body {
@@ -339,11 +342,11 @@ hr {
 .error404Page {
   display: flex;
   flex-direction: column;
-  font-weight: lighter;
   gap: 20px;
   padding: 1rem;
   text-align: center;
   align-items: center;
+
   a {
     text-align: center;
     margin-top: 0.5rem;
@@ -361,38 +364,39 @@ hr {
 .error404PageContent {
   color: var(--accent-secondary);
 }
-.error404PageImg1 {
-  top: 200px;
-  left: 10px;
-  width: 100px;
-  //transform: translate(-50%, -50%);
-}
 .error404Link {
   position: relative;
-  width: 100%;
   width: 300px;
-  object-fit: cover;
-  object-position: 50% 80%;
+  height: 300px;
 
-  .error404PageImg2 {
-    width: 90%;
+  display: inline-block;
+
+  .error404Img {
+    width: 100%;
     height: 100%;
-    max-width: 300px;
-    border-radius: 30px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow-neon);
     overflow: hidden;
+  }
+  .error404PageImg2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    object-position: 50% 90%;
   }
   .error404TextLink {
     position: absolute;
-    top: 60px;
-    left: 50px;
-    color: white;
-    text-align: end;
-    background: var(--ravenclaw-primary);
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
-    border-radius: 40% 60% 50% 70% / 60% 40% 60% 50%;
-    //background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem;
+    top: 0px;
+    left: 85px;
+    color: var(--link-color);
+    text-align: center;
+    background: var(--link-bg);
+    text-shadow: var(--link-shadow);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     padding: 10px 20px;
-    //font-weight: bold;
+    box-shadow: var(--box-shadow-neon);
   }
 }
 //MEDIA 600px
