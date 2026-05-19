@@ -10,8 +10,10 @@ import Error404Page from './components/Error404Page';
 
 import Castle from './assets/icon-magic-3.png';
 import Harry from './assets/icon-magic-4.png';
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
+  const [error, setError] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [characterName, setCharacterName] = useState('');
   const [characterHouse, setCharacterHouse] = useState('');
@@ -23,7 +25,7 @@ function App() {
     imgHarry: Harry,
   };
   useEffect(() => {
-    fetch('https://hp-api.onrender.com/api/characters')
+    fetch('https://hp-api.onrender.com/api/characters/')
       .then((res) => res.json())
       .then((data) => {
         setCharacters(
@@ -48,7 +50,8 @@ function App() {
         );
       })
       .catch((error) => {
-        console.error('Ha ocurrido un error:', error);
+        setError('No se pudieron cargar los datos. Inténtalo más tarde.');
+        console.error('Ha ocurrido un error al cargar los datos:', error);
       });
   }, []);
   const translation = {
@@ -144,6 +147,7 @@ function App() {
     <div>
       <Header></Header>
       <main>
+        {error && <ErrorMessage message={error.message} />}
         <Routes>
           <Route
             index
@@ -162,6 +166,7 @@ function App() {
               ></LandingPage>
             }
           ></Route>
+
           <Route
             path='/detalle/:id'
             element={
