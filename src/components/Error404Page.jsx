@@ -13,7 +13,7 @@ export default function Error404Page() {
       </p>{' '}
       <Link to='/' className='error404Link'>
         <div className='error404Img'>
-          <img src={trainImg} className='error404PageImg2'></img>
+          <img src={trainImg} className='error404PageImg1'></img>
         </div>
         <p className='error404TextLink'>Volver</p>
       </Link>
